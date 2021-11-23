@@ -24,9 +24,9 @@ public class SpringKafkaPostgresApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		jobRepository.save(new Job("Started"));
-
-		jobRepository.findById(1l).ifPresent(x -> System.out.println(x.getStatus()));
+//		jobRepository.save(new Job("Started"));
+//
+//		jobRepository.findById(1l).ifPresent(x -> System.out.println(x.getStatus()));
 
 	}
 
