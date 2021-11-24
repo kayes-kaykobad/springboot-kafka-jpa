@@ -1,7 +1,8 @@
-package com.example.repository;
+package com.exercise.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import com.example.entity.*;
+
+import com.exercise.entity.*;
 
 public interface JobRepository extends CrudRepository<Job, Long> {
 

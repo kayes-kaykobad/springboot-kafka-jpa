@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.exercise.controller;
 
 import java.util.NoSuchElementException;
 
@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.entity.Job;
-import com.example.exception.JobNotFoundException;
-import com.example.repository.JobRepository;
+import com.exercise.entity.Job;
+import com.exercise.exception.JobNotFoundException;
+import com.exercise.repository.JobRepository;
+
 import org.slf4j.LoggerFactory;
 
 @RestController
