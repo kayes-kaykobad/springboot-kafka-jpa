@@ -10,6 +10,7 @@ public class Job {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;//SequenceStyleGenerator should be used as 
+	// 
 	private String status;
 
 	public Job() {
@@ -34,4 +35,10 @@ public class Job {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	@Override
+	public String toString() {
+		return "Job [id=" + id + ", status=" + status + "]";
+	}
+	
 }
