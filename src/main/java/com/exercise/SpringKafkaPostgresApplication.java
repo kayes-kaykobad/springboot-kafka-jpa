@@ -1,4 +1,4 @@
-package com.example;
+package com.exercise;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,25 +25,16 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
-import com.example.repository.JobRepository;
-
-//import com.example.entity.Student;
+import com.exercise.repository.JobRepository;
 
 @SpringBootApplication
-public class SpringKafkaPostgresApplication implements CommandLineRunner {
+public class SpringKafkaPostgresApplication {
 
 	@Autowired
 	JobRepository jobRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringKafkaPostgresApplication.class, args);
-
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-//		jobRepository.save(new Job("Started"));
-//		jobRepository.findById(1l).ifPresent(x -> System.out.println(x.getStatus()));
 
 	}
 
