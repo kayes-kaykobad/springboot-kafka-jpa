@@ -1,23 +1,23 @@
 <div style="text-align:center">
     <h1>
     </h1>
-    <button (click)="createJobEvent()">
+    <button (click)="createJob()">
         Create Job</button>
     <h2>{{msg}}</h2>
     Enter job ID to get current status of Job
     <input [formControl]="inputJobId">
-    <button (click)="getJobStatusEvent()">
-        Get Job Status</button>
+    <button (click)="getJobDetailsByID()">
+        Get Job detail</button>
     <h2>{{msg2}}</h2>
 
-    <button (click)="getAllJobsEvent()">
+    <button (click)="getAllJobs()">
         Get All job Details</button>
 </div>
 
 <table class="table table-respnnsive">
     <thead>
         <tr>
-        <td>Id</td>
+        <td>ID</td>
         <td>Status</td>
         </tr>
     </thead>

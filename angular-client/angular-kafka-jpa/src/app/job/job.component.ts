@@ -24,7 +24,7 @@ export class JobComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createJobEvent() {
+  createJob() {
     this.jobService.addJob().subscribe(
       (res) => {
         debugger;
@@ -36,7 +36,7 @@ export class JobComponent implements OnInit {
     );
   }
 
-  getJobStatusEvent() {
+  getJobDetailsByID() {
 
     if(this.inputJobId.invalid)
     {
@@ -45,7 +45,7 @@ export class JobComponent implements OnInit {
     this.jobService.getJobByID(this.inputJobId.value).subscribe(
       (res) => {
         
-        this.msg2 = "The status of the job is: " + res.status
+        this.msg2 = "Job ID is: " + res.id + " and the status of the job is: " + res.status
       },
       (error) => {
         
@@ -54,7 +54,7 @@ export class JobComponent implements OnInit {
     );
   }
 
-  getAllJobsEvent() {
+  getAllJobs() {
     this.jobService.getAllJobs().subscribe(
       (res) => {
         debugger;
