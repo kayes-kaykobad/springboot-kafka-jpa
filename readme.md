@@ -1,4 +1,4 @@
-This code has been tested on Windows 10 laptop.
+This code has been tested on Windows 10. Kafka should be run on the same machine where the application code runs. This application uses the default kafka port.
 
 Steps to run:
 

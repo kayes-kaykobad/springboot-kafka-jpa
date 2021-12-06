@@ -1,17 +1,17 @@
 package com.exercise.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +25,7 @@ import com.exercise.repository.JobRepository;
 import org.slf4j.LoggerFactory;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value = "/job-management", produces = { MediaType.APPLICATION_JSON_VALUE })
 public class JobRestController {
 
@@ -63,18 +64,24 @@ public class JobRestController {
 	}
 
 	@GetMapping("/jobs/{id}")
-	String getJobById(@PathVariable Long id) {
+	Job getJobById(@PathVariable Long id) {
 		Job job = new Job();
 //		Throw a 404 error if job ID does not exist
 		try {
 			job = jobRepository.findById(id).get();
 		} catch (NoSuchElementException e) {
 			throw new JobNotFoundException("id: " + id);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			throw e;
 		}
-		return job.getStatus();
+		return job;
+	}
+
+	@GetMapping("/jobs")
+	List<Job> getAllJobs() {
+		List<Job> jobs = new ArrayList<Job>();
+		jobRepository.findAll().forEach(job -> jobs.add(job));
+		return jobs;
 	}
 
 	@KafkaListener(topics = "job-queue", clientIdPrefix = "json", groupId = "job-listener", containerFactory = "kafkaListenerContainerFactory")

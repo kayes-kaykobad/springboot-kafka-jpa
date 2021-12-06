@@ -65,7 +65,7 @@ public class SpringKafkaPostgresApplication {
 
 	@Bean
 	public NewTopic jobTopic() {
-		return new NewTopic(topicName, 1, (short) 1);
+		return new NewTopic("job.topic-name:job-queue", 1, (short) 1);
 	}
 
 	// Consumer configuration

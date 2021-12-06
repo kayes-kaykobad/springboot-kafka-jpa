@@ -1,0 +1,30 @@
+<div style="text-align:center">
+    <h1>
+    </h1>
+    <button (click)="createJobEvent()">
+        Create Job</button>
+    <h2>{{msg}}</h2>
+    Enter job ID to get current status of Job
+    <input [formControl]="inputJobId">
+    <button (click)="getJobStatusEvent()">
+        Get Job Status</button>
+    <h2>{{msg2}}</h2>
+
+    <button (click)="getAllJobsEvent()">
+        Get All job Details</button>
+</div>
+
+<table class="table table-respnnsive">
+    <thead>
+        <tr>
+        <td>Id</td>
+        <td>Status</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let job of jobList">
+            <td>{{job.id}}</td>
+            <td>{{job.status}}</td>
+        </tr>
+    </tbody>
+</table>
